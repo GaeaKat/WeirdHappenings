@@ -1,0 +1,3 @@
+happenings.success=Ran Happening Successfully
+happenings.available=The following Happenings are available: %s
+happenings.notFound=No Happening with that name was found.
