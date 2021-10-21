@@ -33,6 +33,8 @@ public class HappeningsMod
     public Proxy PROXY= DistExecutor.safeRunForDist(() -> ClientProxy::new,() -> Proxy::new);
 
     public HappeningsMod() {
+        ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, HappeningConfig.COMMON_SPEC);
+        
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
