@@ -22,7 +22,8 @@ public class HappeningManager {
             if(countWeight>=r)
                 return happening;
         }
-        return happenings.get(0);
+        // If all happenings have been disabled in the config.
+        return null;
     }
     public static void register(HappeningBase happeningBase) {
         if(happenings.contains(happeningBase))

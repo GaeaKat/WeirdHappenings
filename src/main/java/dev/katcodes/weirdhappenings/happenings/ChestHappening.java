@@ -1,5 +1,6 @@
 package dev.katcodes.weirdhappenings.happenings;
 
+import dev.katcodes.weirdhappenings.HappeningConfig;
 import dev.katcodes.weirdhappenings.utils.BlockUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.player.Player;
@@ -29,5 +30,10 @@ public class ChestHappening extends HappeningBase {
     @Override
     public boolean isClientSide() {
         return true;
+    }
+
+    @Override
+    public double getWeight() {
+        return HappeningConfig.COMMON.chestsWeight.get();
     }
 }

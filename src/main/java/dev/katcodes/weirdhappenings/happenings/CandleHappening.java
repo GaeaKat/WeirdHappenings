@@ -1,5 +1,6 @@
 package dev.katcodes.weirdhappenings.happenings;
 
+import dev.katcodes.weirdhappenings.HappeningConfig;
 import dev.katcodes.weirdhappenings.HappeningsMod;
 import dev.katcodes.weirdhappenings.utils.BlockUtils;
 import net.minecraft.core.BlockPos;
@@ -39,5 +40,10 @@ public class CandleHappening extends HappeningBase{
             return true;
         }
         return false;
+    }
+
+    @Override
+    public double getWeight() {
+        return HappeningConfig.COMMON.candlesWeight.get();
     }
 }

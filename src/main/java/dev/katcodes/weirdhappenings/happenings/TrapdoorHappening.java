@@ -1,5 +1,6 @@
 package dev.katcodes.weirdhappenings.happenings;
 
+import dev.katcodes.weirdhappenings.HappeningConfig;
 import dev.katcodes.weirdhappenings.HappeningsMod;
 import dev.katcodes.weirdhappenings.utils.BlockUtils;
 import net.minecraft.core.BlockPos;
@@ -60,5 +61,9 @@ public class TrapdoorHappening extends HappeningBase {
     private int getOpenSound() {
         return  1006;
     }
-
+    
+    @Override
+    public double getWeight() {
+        return HappeningConfig.COMMON.trapdoorsWeight.get();
+    }
 }

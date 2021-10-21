@@ -20,11 +20,12 @@ public class EventHandler {
         double rand=Math.random() * 100f;
         if(rand > 100f - 0.2f) {
             HappeningBase base= HappeningManager.GetHappening();
-            if(base.isClientSide() && playerTickEvent.side == LogicalSide.CLIENT) {
-                base.runHappening(playerTickEvent.player);
-            }
-            else if(playerTickEvent.side == LogicalSide.SERVER) {
-                base.runHappening(playerTickEvent.player);
+            if (base != null) {
+                if (base.isClientSide() && playerTickEvent.side == LogicalSide.CLIENT) {
+                    base.runHappening(playerTickEvent.player);
+                } else if (playerTickEvent.side == LogicalSide.SERVER) {
+                    base.runHappening(playerTickEvent.player);
+                }
             }
         }
     }
