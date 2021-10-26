@@ -8,8 +8,13 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.Vec3;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 public class BlockUtils {
     public static BlockPos FindBlock(Player player, float radius, Class<? extends Block> block,boolean debug) {
+        List<BlockPos> blocksFound = new ArrayList<BlockPos>();
         Level lvl=player.level;
         Vec3 rot=player.getLookAngle();
         rot=rot.multiply(-1,-1,-1);
@@ -41,11 +46,17 @@ public class BlockUtils {
                     if(debug)
                         HappeningsMod.LOGGER.info("Checking block at "+posToTest+" Is a "+ lvl.getBlockState(posToTest).getBlock().getClass().getName()+" equals "+block.isInstance(lvl.getBlockState(posToTest).getBlock()));
                     if(block.isInstance(lvl.getBlockState(posToTest).getBlock()))
-                        return posToTest;
+                        blocksFound.add(posToTest);
                 }
             }
         }
 
-        return null;
+        if(blocksFound.size()==0)
+            return null;
+        else {
+            Random rand = new Random();
+            int index=rand.nextInt(blocksFound.size());
+            return blocksFound.get(index);
+        }
     }
 }
