@@ -8,5 +8,6 @@ public class ModHappenings {
         HappeningManager.register(new TrapdoorHappening());
         HappeningManager.register(new CandleHappening());
         HappeningManager.register(new TorchHappening());
+        HappeningManager.register(new PumpkinHappening());
     }
 }
