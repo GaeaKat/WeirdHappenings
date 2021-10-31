@@ -18,7 +18,7 @@ public class TorchHappening extends HappeningBase {
 
     @Override
     public boolean runHappening(Player player) {
-        BlockPos torch= BlockUtils.FindBlock(player,10, TorchBlock.class,false);
+        BlockPos torch= BlockUtils.FindBlock(player,10, TorchBlock.class,false,true);
         if(torch!=null) {
             int attempts=0;
             while(attempts < 50) {

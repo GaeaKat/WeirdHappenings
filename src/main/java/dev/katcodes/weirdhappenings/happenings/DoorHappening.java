@@ -21,7 +21,7 @@ public class DoorHappening  extends HappeningBase {
     public boolean runHappening(Player player) {
         BlockPos door=BlockUtils.FindBlock(player,10, DoorBlock.class,false);
         if(door!=null) {
-            HappeningsMod.LOGGER.info("Found Door at "+door);
+            //HappeningsMod.LOGGER.info("Found Door at "+door);
             BlockState doorState=player.level.getBlockState(door);
             DoorBlock doorBlock= (DoorBlock) doorState.getBlock();
             doorState = doorState.cycle(OPEN);

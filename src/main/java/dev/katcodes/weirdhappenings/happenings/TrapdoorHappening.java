@@ -28,7 +28,7 @@ public class TrapdoorHappening extends HappeningBase {
     public boolean runHappening(Player player) {
         BlockPos door=BlockUtils.FindBlock(player,10, TrapDoorBlock.class,false);
         if(door!=null) {
-            HappeningsMod.LOGGER.info("Found TrapDoor at "+door);
+            //HappeningsMod.LOGGER.info("Found TrapDoor at "+door);
             BlockState doorState=player.level.getBlockState(door);
             TrapDoorBlock doorBlock= (TrapDoorBlock) doorState.getBlock();
             doorState = doorState.cycle(OPEN);

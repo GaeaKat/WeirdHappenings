@@ -13,7 +13,10 @@ import java.util.List;
 import java.util.Random;
 
 public class BlockUtils {
-    public static BlockPos FindBlock(Player player, float radius, Class<? extends Block> block,boolean debug) {
+    public static BlockPos FindBlock(Player player, float radius, Class<? extends Block> block, boolean debug) {
+        return FindBlock(player, radius, block,debug,false);
+    }
+    public static BlockPos FindBlock(Player player, float radius, Class<? extends Block> block,boolean debug,boolean exact) {
         List<BlockPos> blocksFound = new ArrayList<BlockPos>();
         Level lvl=player.level;
         Vec3 rot=player.getLookAngle();
@@ -45,8 +48,13 @@ public class BlockUtils {
                     BlockPos posToTest=new BlockPos(Math.ceil(x),Math.ceil(y),Math.ceil(z));
                     if(debug)
                         HappeningsMod.LOGGER.info("Checking block at "+posToTest+" Is a "+ lvl.getBlockState(posToTest).getBlock().getClass().getName()+" equals "+block.isInstance(lvl.getBlockState(posToTest).getBlock()));
-                    if(block.isInstance(lvl.getBlockState(posToTest).getBlock()))
-                        blocksFound.add(posToTest);
+                    if(exact) {
+                      if(block.equals(lvl.getBlockState(posToTest).getBlock().getClass()))
+                          blocksFound.add(posToTest);
+                    } else {
+                        if (block.isInstance(lvl.getBlockState(posToTest).getBlock()))
+                            blocksFound.add(posToTest);
+                    }
                 }
             }
         }

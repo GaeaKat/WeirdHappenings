@@ -27,7 +27,7 @@ public class CandleHappening extends HappeningBase{
     public boolean runHappening(Player player) {
         BlockPos candlePos= BlockUtils.FindBlock(player,10, AbstractCandleBlock.class,false);
         if(candlePos!=null) {
-            HappeningsMod.LOGGER.info("Found Candle at "+candlePos);
+            //HappeningsMod.LOGGER.info("Found Candle at "+candlePos);
             BlockState candleState=player.level.getBlockState(candlePos);
             CandleBlock candleBlock= (CandleBlock) candleState.getBlock();
             if(candleState.getValue(LIT)) {
